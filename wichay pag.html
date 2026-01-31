@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wichay | Eleva tu Creatividad y Estilo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent: #0047ff; /* Azul Eléctrico */
+            --vibrant-pink: #ff007a;
+            --dark: #121212;
+            --light: #ffffff;
+            --gray: #f4f7f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); overflow-x: hidden; }
+
+        /* Fondo Animado */
+        .animated-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, #ffffff, #f0f4ff, #fff0f5, #ffffff);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex; justify-content: space-between; padding: 1.5rem 5%;
+            align-items: center; position: fixed; width: 100%; top: 0;
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(15px); z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: bold; letter-spacing: 3px; color: var(--dark); }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; margin-top: 60px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/6263068/pexels-photo-6263068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 1.1; margin-bottom: 1rem; }
+        .hero-content h1 span { color: #00d4ff; text-shadow: 0 0 20px rgba(0,212,255,0.5); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; font-weight: 300; letter-spacing: 1px; }
+
+        /* Botones */
+        .btn-main {
+            padding: 1.2rem 3rem; background: var(--accent); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: 600;
+            transition: 0.4s; display: inline-block;
+        }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,71,255,0.4); background: var(--vibrant-pink); }
+
+        /* WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000; transition: 0.3s; text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Secciones */
+        .section { padding: 6rem 8%; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 4rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        
+        .card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s;
+            position: relative; border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover { transform: translateY(-15px); border-color: var(--accent); }
+
+        .card-img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+        .card:hover .card-img { transform: scale(1.1); }
+        
+        .card-info { padding: 2rem; text-align: center; }
+        .card-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .card-info p { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* Showcase Especial */
+        .showcase { background: var(--dark); color: white; border-radius: 40px; margin: 0 5%; padding: 4rem; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+        .showcase-text { flex: 1; min-width: 300px; }
+        .showcase-img { flex: 1; min-width: 300px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
+        footer { text-align: center; padding: 4rem; background: #000; color: #666; margin-top: 5rem; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .showcase { padding: 2rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+
+    <a href="https://wa.me/TUNUMERO" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="navbar">
+        <div class="logo">WICHAY</div>
+        <div class="nav-links">
+            <a href="#insumos">Insumos</a>
+            <a href="#estilo">Tu Estilo</a>
+            <a href="#academia">Academia</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Eleva tu Creatividad,<br><span>Eleva tu Estilo</span></h1>
+            <p>Herramientas Pro · Cristales Genuinos · Acero Inoxidable</p>
+            <a href="#insumos" class="btn-main">Descubrir Materiales</a>
+        </div>
+    </header>
+
+    <section id="insumos" class="section">
+        <h2 class="section-title">Insumos para Creadores</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/6263068/pexels-photo-6263068.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Cristales">
+                <div class="card-info">
+                    <h3>Cristales de Vidrio</h3>
+                    <p>Cortes precisos y colores vibrantes para piezas que roban miradas.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/9466632/pexels-photo-9466632.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Acero">
+                <div class="card-info">
+                    <h3>Acero Inoxidable</h3>
+                    <p>La base perfecta: durabilidad eterna y acabado espejo profesional.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/6320493/pexels-photo-6320493.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Herramientas">
+                <div class="card-info">
+                    <h3>Herramientas Pro</h3>
+                    <p>Pinzas de precisión que se convierten en la extensión de tu mano.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="estilo" class="showcase">
+        <div class="showcase-text">
+            <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 1.5rem;">Eleva tu Presencia</h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">Wichay no solo te da el material, te da el estilo. Diseños modernos que transforman cualquier outfit en una declaración de arte.</p>
+            <a href="https://wa.me/TUNUMERO" class="btn-main" style="background: white; color: black;">Solicitar Catálogo PDF</a>
+        </div>
+        <img src="https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=600" class="showcase-img" alt="Estilo Wichay">
+    </section>
+
+    <section id="academia" class="section">
+        <h2 class="section-title">Academia Wichay</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/5442443/pexels-photo-5442443.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Tutorial">
+                <div class="card-info">
+                    <h3>Minitutoriales</h3>
+                    <p>Aprende técnicas de engaste y acabado en menos de un minuto.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/3984841/pexels-photo-3984841.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img" alt="Asesoría">
+                <div class="card-info">
+                    <h3>Asesoría 1 a 1</h3>
+                    <p>¿No sabes qué comprar? Te asesoramos según tu nivel y presupuesto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="font-family: 'Playfair Display'; color: white;">WICHAY</h2>
+        <p>Insumos y Accesorios de Bisutería Premium</p>
+        <p style="margin-top: 2rem;">&copy; 2026 - Diseñado para elevar tu marca.</p>
+    </footer>
+
+</body>
+</html>
